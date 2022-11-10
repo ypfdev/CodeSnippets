@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_resetFrameOfCell</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/// 重写方法，调整cell布局区域大小
+/// @param frame 边框对象
+- (void)setFrame:(CGRect)frame {
+    /** ⚠️
+     必须先修改frame，再调用父类方法
+     */
+    
+    frame.origin.x += 15;
+    frame.origin.y += 7.5;
+    frame.size.width -= 30;
+    frame.size.height -= 15;
+    
+    [super setFrame:frame];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BBE9E0B3-233E-4C2C-874B-B957A2352943</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>调整cell布局区域大小</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_resetFrameOfCell</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_AMapRegeocode</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+ 调用高德地图，查询逆地理获取当前城市
+ */
+- (void)queryCurrentCity {
+    
+    // 记得写一个高德位置管理器属性
+    //    @property (nonatomic, strong) AMapLocationManager *locationM;
+    
+    // 设置代理
+    _locationManager.delegate = self;
+    // 设置定位精确度到米
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    // 设置过滤器为无
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    // 取得定位权限，有两个方法，取决于你的定位使用情况
+    // 一个是requestAlwaysAuthorization，一个是requestWhenInUseAuthorization
+    // 这句话ios8以上版本使用。
+    [_locationManager requestAlwaysAuthorization];
+    // 开始定位
+    [_locationManager startUpdatingLocation];
+    
+    // 带逆地理信息的一次定位（返回坐标和地址信息）
+    [self.locationM setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    //   定位超时时间，最低2s，此处设置为2s
+    self.locationM.locationTimeout =2;
+    //   逆地理请求超时时间，最低2s，此处设置为2s
+    self.locationM.reGeocodeTimeout = 2;
+    ASWeak(self);
+    // 带逆地理（返回坐标和地址信息）。将下面代码中的 YES 改成 NO ，则不会返回地址信息。
+    [self.locationM requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
+        if (error) {
+            NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
+            if (error.code == AMapLocationErrorLocateFailed)  {
+                weakself.currentCityName = @"中山市";
+                [self responseUpdateCurrentCity];
+                return;
+            }
+        }
+        
+        if (regeocode.city) {
+            NSLog(@"reGeocode:%@", regeocode);
+            weakself.currentCityName = regeocode.city;
+            [self responseUpdateCurrentCity];
+        }
+    }];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>894A8E8F-9EF9-4FE5-91FF-CF9F95AAEAEE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>高德地图获取逆地理信息</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_AMapRegeocode</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

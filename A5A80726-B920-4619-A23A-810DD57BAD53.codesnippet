@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_check_iOS</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>if (@available(iOS &lt;#11.0#&gt;, *)) {
+        _serviceBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentTrailing;
+    } else {
+        // Fallback on earlier versions
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A5A80726-B920-4619-A23A-810DD57BAD53</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>检查iOS版本</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_check_iOS</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

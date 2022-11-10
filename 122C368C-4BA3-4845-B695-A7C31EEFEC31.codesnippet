@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_layoutPriority</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/*
+     *******************
+     * 按钮   标签  标签 *
+     *******************
+     
+     *******
+     * 按钮 *
+     * 标签 *
+     * 按钮 *
+     *******
+     
+     多个控件成行（列）的布局（如上图），设置控件布局的优先级（0-1000）。
+     关于优先级的数值，系统定义了几个典型值（/UIKit/NSLayoutConstraint）：
+     UILayoutPriorityRequired           1000
+     UILayoutPriorityDefaultHigh         750
+     UILayoutPriorityDefaultLow          250
+     UILayoutPriorityFittingSizeLevel     50
+     */
+    // UIKit/UIview/UIView (UIConstraintBasedLayoutLayering)
+    [self.promotionTag setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.promotionTag setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>122C368C-4BA3-4845-B695-A7C31EEFEC31</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>设置一组控件自动布局的约束优先级</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_layoutPriority</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

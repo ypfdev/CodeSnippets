@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_cancelAdjustmentBehavior</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// 取消自动偏移
+if (@available(iOS 11.0, *)) {
+    _goodsTB.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+} else {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9E88F3CA-956D-473A-B4CD-B334A28EAC1E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>取消sv自动偏移</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_cancelAdjustmentBehavior</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

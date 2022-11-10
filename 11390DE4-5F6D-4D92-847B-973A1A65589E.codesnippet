@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_customAnimationShow</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+ filter向左推出的动画
+ */
+- (void)showAnimation {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.maskBG.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+        self.filterBG.frame = CGRectMake(self.view.bounds.size.width * 0.15, 0, self.view.bounds.size.width *0.85, self.view.bounds.size.height);
+    } completion:nil];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>11390DE4-5F6D-4D92-847B-973A1A65589E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>自定义frame动画</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_customAnimationShow</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

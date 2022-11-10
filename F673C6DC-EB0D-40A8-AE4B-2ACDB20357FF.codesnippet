@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_tabBar‘sTransitionAnimation</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    // 添加切换根控制器时的转场动画
+    UITabBarController *rootC;
+    if ([[[CamDeviceManager sharedManager] getWiFiIP] isEqualToString:LYCameraIP]) {
+        rootC = [[LingYangRootC alloc] init];
+    } else if([[[CamDeviceManager sharedManager] getWiFiIP] isEqualToString:QZCameraIP]) {
+        rootC = [[QZRootC alloc] init];
+    } else if([[[CamDeviceManager sharedManager] getWiFiIP] isEqualToString:MSCameraIP]) {
+        rootC = [[MSRootC alloc] init];
+    } else {
+        rootC = [[MCRootC alloc] init];
+    }
+    CATransition *transtition = [CATransition animation];
+    transtition.duration = 0.5;
+    transtition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    [UIApplication sharedApplication].keyWindow.rootViewController = rootC;
+    [[UIApplication sharedApplication].keyWindow.layer addAnimation:transtition forKey:@"animation"];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F673C6DC-EB0D-40A8-AE4B-2ACDB20357FF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>tabBar切换根控制器转场动画</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_tabBar‘sTransitionAnimation</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

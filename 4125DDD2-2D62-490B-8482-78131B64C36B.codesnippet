@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_micro_target</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#if TARGET == &lt;#TARGET_A#&gt;
+    &lt;#NSLog(@"TARGET_A");#&gt;
+#elif TARGET == &lt;#TARGET_B#&gt;
+    &lt;#NSLog(@"TARGET_B");#&gt;
+#elif TARGET == &lt;#TARGET_C#&gt;
+    &lt;#NSLog(@"TARGET_C");#&gt;
+#endif</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4125DDD2-2D62-490B-8482-78131B64C36B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>判断品牌target</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_micro_target</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

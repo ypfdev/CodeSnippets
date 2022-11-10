@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_network_NSURLSession</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//MARK: -  NSRULSession发起网络请求
+- (void)testNSURLSession {
+    
+    NSString *urlStr = @"http://www.cnblogs.com/mddblog/p/5215453.html";
+    
+    // 处理特殊字符编码
+    urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSURL *url = [NSURL URLWithString:urlStr];
+    
+    /* 创建request
+     url：网址
+     缓存策略：每次都从网络加载
+     超时时长：30s
+     */
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30.0];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        // 网络请求完成之后执行，NSURLSession自动实现多线程
+        NSLog(@"%@", [NSThread currentThread]);
+        
+        // 成功
+        if (data &amp;&amp; (error == nil)) {
+            NSLog(@"data = %@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+            
+            // 失败
+        } else {
+            NSLog(@"error = %@", error);
+        }
+        
+    }];
+    
+    // 每一个task默认都是挂起的，需要手动开启
+    [dataTask resume];
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>85AC7D36-10E8-428F-B0F2-4AD11239F16A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>使用NSURLSession发起网络请求</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_network_NSURLSession</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

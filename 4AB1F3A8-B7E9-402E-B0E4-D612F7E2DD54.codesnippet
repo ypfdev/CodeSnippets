@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_mjMapping_DataContainer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+ 指定非系统类型的容器中存放的数据类型（以形如 字段-类型的class或className 的键值对存放在字典中）
+ 
+ @return 数据类型&amp;字段の映射字典&lt;模型属性数据类型-模型属性名&gt;
+ */
++ (NSDictionary *)mj_objectClassInArray {
+    return @{@"&lt;#goodsSpecificationList#&gt;":[&lt;#GPGoodsDetailSpecModel#&gt; class]};
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4AB1F3A8-B7E9-402E-B0E4-D612F7E2DD54</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>mj容器映射</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_mjMapping_DataContainer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

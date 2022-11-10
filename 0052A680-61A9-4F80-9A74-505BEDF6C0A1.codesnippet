@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_GCDGroup</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// ******************** GCD 调度组 ********************
+// 新建调度组
+dispatch_group_t group = dispatch_group_create();
+// 新建队列
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+[self queryGoodsComment:group];
+[self queryConsultations:group];
+if ([GPUserInfo userInfo].isLogin) {
+    [self queryCartCount:group];
+    [self queryAddress:group];
+}
+// 完成通知
+dispatch_group_notify(group, queue, ^{
+    // 主线程更新UI
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.goodsTB reloadData];
+        // 《商品详情-详情-商品》加载html字符串（字符串内容是商品介绍的长图截断成的图片数组）
+        [self.subDetailView loadHtml:self.detailModel.goodsDetails];
+    });
+    
+    // 如果不包邮&amp;&amp;运费模板ID不为空，就发起查询运费的网络请求（需要拿完地址之后才能进行，所以放到了这里）
+    if (self.detailModel.goodsTransfee == 0 &amp;&amp; !GP_StringIsEmpty(self.detailModel.transportId)) {
+        [self queryTransportFeeWithShippingAreaId:self.selectAddress.provinceId shippingIds:self.detailModel.transportId];
+    }
+});
+// ***************************************************</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0052A680-61A9-4F80-9A74-505BEDF6C0A1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>GCD调度组实现线程依赖</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_GCDGroup</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

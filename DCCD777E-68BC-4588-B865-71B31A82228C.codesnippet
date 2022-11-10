@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_semaphoreForSync</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/** 信号量保持线程同步的原理
+ 由于是将block异步添加到一个并行队列里面，所以程序在主线程跳过block直接到dispatch_semaphore_wait这一行，因为semaphore信号量为0、且超时时间为DISPATCH_TIME_FOREVER，所以当前线程会一直阻塞，直到block在子线程执行到dispatch_semaphore_signal，使信号量+1，此时semaphore信号量为1了，所以程序继续往下执行。这就保证了线程间同步了
+ */
+
+/** dispatch_semaphore_create(intptr_t value)
+ 创建一个信号量semaphore，其中初始计数与接下来要调度的耗时任务个数有关。
+ */
+dispatch_semaphore_t semaphore = dispatch_semaphore_create(-1);
+
+// 在全局并发队列执行耗时任务
+// 耗时任务1
+dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    // 耗时任务通常指网络请求
+    [NSThread sleepForTimeInterval:1.0];
+    
+    /** dispatch_semaphore_signal(dispatch_semaphore_t dsema)
+     发送一个信号，令semaphore计数加1。调用时机是耗时任务完成时，通常放在网络请求的完成回调中。
+     */
+    dispatch_semaphore_signal(semaphore);
+});
+// 耗时任务2
+dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    [NSThread sleepForTimeInterval:1.0];
+    dispatch_semaphore_signal(semaphore);
+});
+
+// 检查semaphore计数
+dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    /** dispatch_semaphore_wait(dispatch_semaphore_t dsema, dispatch_time_t timeout)
+     令semaphore计数减1。
+     若计数为0时，就会等待指定时长（这里传参DISPATCH_TIME_FOREVER，会一直等待下去），即达到阻塞线程的效果；
+     若计数不为0，就会继续执行后面的代码。
+     */
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+});</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DCCD777E-68BC-4588-B865-71B31A82228C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>用信号量保持线程同步（将异步任务转换为同步任务）</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_semaphoreForSync</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

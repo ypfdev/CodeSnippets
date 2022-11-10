@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_NSTimer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - NSTimer
+
+/// 开启定时器
+- (void)startTimer {
+    if (!&lt;#_timer#&gt;) {
+        MCWeakProxy *weakProxy = [MCWeakProxy proxyWithWeakObject:self];
+        self.&lt;#timer#&gt; = [NSTimer scheduledTimerWithTimeInterval:&lt;#5#&gt; target:weakProxy selector:@selector(&lt;#countDown#&gt;) userInfo:nil repeats:YES];
+    }
+}
+
+/// 读秒方法
+- (void)&lt;#countdown#&gt; {
+    
+}
+
+/// 关闭定时器
+- (void)stopTimer {
+    if ([self.timer isValid]) {
+        [self.timer invalidate];    // 让定时器失效
+        self.timer = nil;           // 释放定时器
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E17D1BD2-C8E8-485A-B86F-11F20099A458</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>基于弱引用中间件MCWeakProxy的NSTimer定时器</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_NSTimer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

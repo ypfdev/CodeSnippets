@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_GCDGroup</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// ******************** GCD 调度组 ********************
+// 创建GCD调度组
+dispatch_group_t group = dispatch_group_create();
+// 创建队列
+//    dispatch_queue_t q = dispatch_get_global_queue(0, 0);
+dispatch_queue_t queue =dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
+
+// 将任务添加到队列和调度组
+dispatch_group_async(group, queue, ^{
+    // 任务1
+});
+
+dispatch_group_async(group, queue, ^{
+    // 任务2
+});
+dispatch_group_async(group, queue, ^{
+    // 任务3
+});
+
+// 待组内所有任务都完成后，响应通知的操作
+dispatch_group_notify(group, queue, ^{
+    
+});
+// ***************************************************</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DBD34176-0493-43EB-AB21-6FAC64C2E7DA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>GCD 调度组</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_GCDGroup</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_observerRAC</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>ASWeak(self);
+[[RACObserve(self.imgCL, contentSize) filter:^BOOL(id  _Nullable value) {
+    return !CGSizeEqualToSize([value CGSizeValue],CGSizeZero);
+}] subscribeNext:^(id  _Nullable x) {
+    CGFloat height = [x CGSizeValue].height;
+    [weakself.imgCL mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(@(height));
+    }];
+}];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>82C25691-4C96-4899-BF96-9C1B32AF1391</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>添加RAC监听</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_observerRAC</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

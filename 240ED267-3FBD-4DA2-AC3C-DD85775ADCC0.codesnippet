@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_customAnimationPush</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.5;
+    //animation.type = @"pageCurl";
+    animation.type = kCATransitionPush;
+    animation.subtype = kCATransitionFromRight;
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    [self.window.layer addAnimation:animation forKey:nil];
+    [self.nav presentViewController:navigationController animated:NO completion:nil];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>240ED267-3FBD-4DA2-AC3C-DD85775ADCC0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>自定义push动画</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_customAnimationPush</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

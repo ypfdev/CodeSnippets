@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_semaphoreForLock</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)lockedTaskQueue {
+    /** 信号量保持线程安全（加锁）的原理
+     实现：
+     先创建一个初始计数为1的信号量。接下来要在子线程并发执行asyncTask，当每次添加task到并发队列时，先调用dispatch_semaphore_wait方法。
+     分析：
+     当第一个子线程添加任务1时，先dispatch_semaphore_wait令信号量减1，此时信号量等于0，则会继续执行任务1的真正代码；
+     当并发队列中的其他线程再次尝试添加任务2时，先调用dispatch_semaphore_wait令信号量减1，此时semaphore计数为-1，则不会执行接下来的任务2代码；
+     必须等任务1（当前任务）执行完毕后，调用dispatch_semaphore_signal将信号量加1，则此时segmaphore计数为0，又可以继续执行接下来的任务2代码；
+     以此类推，从而达到线程加锁的目的。
+     */
+    
+    // 先创建一个初始计数为1的信号量。注意：初始计数为1才能保证每次仅有一个任务被执行。
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    // 异步并发
+    __block NSInteger count = 0;
+    for (NSInteger i = 0; i &lt; 100; i++) {
+        dispatch_queue_t queue = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            // 任务代码
+            // 当每次添加任务n到并发队列时，先调用dispatch_semaphore_wait令semaphore计数-1
+            // 此时semaphore计数为0，可以执行接下来的任务n代码
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+            count++;
+            sleep(1);
+            NSLog(@"任务编号：%zd", count);
+            // 任务n任务执行完毕，调用dispatch_semaphore_signal令semaphore计数+1
+            // 此时semaphore计数不为0，下次添加任务n+1时，就需要检查semaphore
+            dispatch_semaphore_signal(semaphore);
+        });
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9AA39CC4-6B34-4AA2-A826-284BD1058CBC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>用信号量保证线程安全（模拟为线程加锁）</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_semaphoreForLock</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

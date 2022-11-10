@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_scheme</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>if ([MCDeviceManager sharedManager].schemeType == MCSchemeTypeHiSi) {
+    
+} else if ([MCDeviceManager sharedManager].schemeType == MCSchemeTypeMStar) {
+    
+} else if ([MCDeviceManager sharedManager].schemeType == MCSchemeTypeQuanzhi) {
+       
+} else if ([MCDeviceManager sharedManager].schemeType == MCSchemeTypeLingyang) {
+       
+} else {
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>AE320853-58D5-46E6-B90E-B41401DF4B64</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Apeman运动相机判断方案</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_scheme</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

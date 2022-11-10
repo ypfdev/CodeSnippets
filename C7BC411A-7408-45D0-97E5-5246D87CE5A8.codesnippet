@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_enumerateObjects</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// 快速枚举法遍历数组（适合不需要完全遍历的情况，如查找某个值）
+[dataArray enumerateObjectsUsingBlock:^(GPProduct *p, NSUInteger idx, BOOL * _Nonnull stop) {
+    if ([p.productId isEqualToString:weakSelf.productId]) {
+        self.product.isFav = YES;
+        *stop = YES;
+    }
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C7BC411A-7408-45D0-97E5-5246D87CE5A8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>不完全遍历数组</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_enumerateObjects</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

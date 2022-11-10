@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xx_removeScrollViewPanGestureRecognizer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//移除scrollView侧滑手势冲突
+- (void)removeScrollViewPanGestureRecognizer {
+    NSArray *gestureArray = self.navigationController.view.gestureRecognizers;
+    for (UIGestureRecognizer *gestureRecognizer in gestureArray) {
+        if ([gestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+            [_scrollView.panGestureRecognizer requireGestureRecognizerToFail:gestureRecognizer];
+        }
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>723546FA-E82A-43E0-9F52-A863039550AA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>移除scrollView策划手势冲突</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xx_removeScrollViewPanGestureRecognizer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
